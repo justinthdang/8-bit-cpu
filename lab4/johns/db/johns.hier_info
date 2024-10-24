@@ -1,0 +1,16 @@
+|johns
+Clrn => Qreg[2].ACLR
+Clrn => Qreg[1].ACLR
+Clrn => Qreg[0].ACLR
+Clk => Qreg[2].CLK
+Clk => Qreg[1].CLK
+Clk => Qreg[0].CLK
+W[0] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+W[1] <= Qreg[2].DB_MAX_OUTPUT_PORT_TYPE
+W[2] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+W[3] <= <GND>
+Q[2] <= Qreg[2].DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Qreg[1].DB_MAX_OUTPUT_PORT_TYPE
+Q[0] <= Qreg[0].DB_MAX_OUTPUT_PORT_TYPE
+
+

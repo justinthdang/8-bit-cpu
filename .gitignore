@@ -1,0 +1,13 @@
+*/db/
+*/incremenal_db/
+*/output_files/
+*/simulation/
+
+*.bak
+*.bdf
+*.bsf
+*.qpf
+*.qsf
+*.qws
+*.temp
+*.vwf
