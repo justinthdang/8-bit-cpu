@@ -1,4 +1,4 @@
-LIBRARY ieee;
+IBRARY ieee;
 USE ieee.std_logic_1164.all;
 
 -- 4-to-1 multiplexer
