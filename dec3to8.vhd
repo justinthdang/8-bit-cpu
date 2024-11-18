@@ -1,0 +1,27 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY dec3to8 IS
+	PORT (
+		w : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+		en : IN STD_LOGIC;
+		y : OUT STD_LOGIC_VECTOR(0 TO 7)
+	);
+END dec3to8;
+
+ARCHITECTURE behaviour OF dec3to8 IS
+	SIGNAL enw : STD_LOGIC_VECTOR(3 DOWNTO 0);
+	 
+BEGIN
+	enw <= en & w;
+	WITH enw SELECT
+		y <= "10000000" WHEN "1000",
+			  "01000000" WHEN "1001",
+			  "00100000" WHEN "1010",
+			  "00010000" WHEN "1011",
+			  "00001000" WHEN "1100",
+			  "00000100" WHEN "1101",
+			  "00000010" WHEN "1110",
+			  "00000001" WHEN "1111",
+			  "00000000" WHEN OTHERS;
+END behaviour;
