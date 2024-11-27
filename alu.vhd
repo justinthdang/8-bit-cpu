@@ -1,19 +1,22 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
-USE ieee.std_logic_unsigned.all;
 USE ieee.numeric_std.all;
 
 ENTITY alu IS
 	PORT (
 		clk, res : IN STD_LOGIC;
-		reg1, reg2 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-		opcode : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-		result : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+		a, b, opcode : IN UNSIGNED(7 DOWNTO 0);
+		r1, r2 : OUT UNSIGNED(3 DOWNTO 0);
+		sign1, sign2 : OUT STD_LOGIC
 	);
 END alu;
 
 ARCHITECTURE behaviour OF alu IS
+	SIGNAL reg1, reg2, result : UNSIGNED(7 DOWNTO 0) := (OTHERS => '0');
+
 BEGIN
+	reg1 <= a;
+	reg2 <= b;
 	PROCESS (clk, res)
 	BEGIN
 		IF res = '1' THEN
@@ -27,9 +30,9 @@ BEGIN
 				WHEN "00000100" =>
                result <= NOT(reg1);
 				WHEN "00001000" =>
-               result <= reg1 NAND reg2;
+               result <= NOT(reg1 AND reg2);
 				WHEN "00010000" =>
-               result <= reg1 NOR reg2;
+               result <= NOT(reg1 OR reg2);
 				WHEN "00100000" =>
                result <= reg1 AND reg2;
 				WHEN "01000000" =>
@@ -37,8 +40,12 @@ BEGIN
 				WHEN "10000000" =>
                result <= reg1 OR reg2;
 				WHEN OTHERS =>
-               result <= "XXXXXXXX";
-			END CASE;
+					result <= (OTHERS => '0');
+            END CASE;
+            r1 <= result(7 DOWNTO 4); -- first four bits
+            r2 <= result(3 DOWNTO 0); -- last four bits
+            sign1 <= result(7);
+            sign2 <= result(3);
 		END IF;
 	END PROCESS;
 END behaviour;
