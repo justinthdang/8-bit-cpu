@@ -1,5 +1,5 @@
 Analysis & Synthesis report for 8bitCPU
-Tue Nov 26 23:59:14 2024
+Wed Nov 27 21:21:25 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,11 +13,10 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |test|fsm:inst2|yfsm
+  8. State Machine - |test3|fsm:inst2|yfsm
   9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -43,16 +42,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Nov 26 23:59:14 2024           ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 27 21:21:25 2024           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; 8bitCPU                                         ;
-; Top-level Entity Name              ; test                                            ;
+; Top-level Entity Name              ; test3                                           ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 118                                             ;
-;     Total combinational functions  ; 86                                              ;
-;     Dedicated logic registers      ; 42                                              ;
-; Total registers                    ; 42                                              ;
-; Total pins                         ; 37                                              ;
+; Total logic elements               ; 14                                              ;
+;     Total combinational functions  ; 8                                               ;
+;     Dedicated logic registers      ; 9                                               ;
+; Total registers                    ; 9                                               ;
+; Total pins                         ; 10                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -66,7 +65,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP2C35F672C6       ;                    ;
-; Top-level entity name                                                      ; test               ; 8bitCPU            ;
+; Top-level entity name                                                      ; test3              ; 8bitCPU            ;
 ; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -161,11 +160,10 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------------+--------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path               ; Library ;
 +----------------------------------+-----------------+------------------------------------+--------------------------------------------+---------+
-; alu.vhd                          ; yes             ; User VHDL File                     ; C:/Users/tinhu/Desktop/coe-328/alu.vhd     ;         ;
 ; dec3to8.vhd                      ; yes             ; User VHDL File                     ; C:/Users/tinhu/Desktop/coe-328/dec3to8.vhd ;         ;
-; reg.vhd                          ; yes             ; User VHDL File                     ; C:/Users/tinhu/Desktop/coe-328/reg.vhd     ;         ;
 ; fsm.vhd                          ; yes             ; User VHDL File                     ; C:/Users/tinhu/Desktop/coe-328/fsm.vhd     ;         ;
-; test.bdf                         ; yes             ; User Block Diagram/Schematic File  ; C:/Users/tinhu/Desktop/coe-328/test.bdf    ;         ;
+; alu3.vhd                         ; yes             ; User VHDL File                     ; C:/Users/tinhu/Desktop/coe-328/alu3.vhd    ;         ;
+; test3.bdf                        ; yes             ; User Block Diagram/Schematic File  ; C:/Users/tinhu/Desktop/coe-328/test3.bdf   ;         ;
 +----------------------------------+-----------------+------------------------------------+--------------------------------------------+---------+
 
 
@@ -174,28 +172,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 118   ;
+; Estimated Total logic elements              ; 14    ;
 ;                                             ;       ;
-; Total combinational functions               ; 86    ;
+; Total combinational functions               ; 8     ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 44    ;
-;     -- 3 input functions                    ; 27    ;
-;     -- <=2 input functions                  ; 15    ;
+;     -- 4 input functions                    ; 2     ;
+;     -- 3 input functions                    ; 2     ;
+;     -- <=2 input functions                  ; 4     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 72    ;
-;     -- arithmetic mode                      ; 14    ;
+;     -- normal mode                          ; 8     ;
+;     -- arithmetic mode                      ; 0     ;
 ;                                             ;       ;
-; Total registers                             ; 42    ;
-;     -- Dedicated logic registers            ; 42    ;
+; Total registers                             ; 9     ;
+;     -- Dedicated logic registers            ; 9     ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 37    ;
+; I/O pins                                    ; 10    ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out node                        ; clock ;
-; Maximum fan-out                             ; 42    ;
-; Total fan-out                               ; 432   ;
-; Average fan-out                             ; 2.62  ;
+; Maximum fan-out                             ; 9     ;
+; Total fan-out                               ; 59    ;
+; Average fan-out                             ; 2.19  ;
 +---------------------------------------------+-------+
 
 
@@ -204,19 +202,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |test                      ; 86 (0)            ; 42 (0)       ; 0           ; 0            ; 0       ; 0         ; 37   ; 0            ; |test               ; work         ;
-;    |alu:inst|              ; 77 (77)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test|alu:inst      ; work         ;
-;    |dec3to8:inst1|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test|dec3to8:inst1 ; work         ;
-;    |fsm:inst2|             ; 8 (8)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test|fsm:inst2     ; work         ;
-;    |reg:inst3|             ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test|reg:inst3     ; work         ;
-;    |reg:inst4|             ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test|reg:inst4     ; work         ;
+; |test3                     ; 8 (0)             ; 9 (0)        ; 0           ; 0            ; 0       ; 0         ; 10   ; 0            ; |test3              ; work         ;
+;    |alu3:inst|             ; 3 (3)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test3|alu3:inst    ; work         ;
+;    |fsm:inst2|             ; 5 (5)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |test3|fsm:inst2    ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------+
-; State Machine - |test|fsm:inst2|yfsm                                                    ;
+; State Machine - |test3|fsm:inst2|yfsm                                                   ;
 +---------+---------+---------+---------+---------+---------+---------+---------+---------+
 ; Name    ; yfsm.s7 ; yfsm.s6 ; yfsm.s5 ; yfsm.s4 ; yfsm.s3 ; yfsm.s2 ; yfsm.s1 ; yfsm.s0 ;
 +---------+---------+---------+---------+---------+---------+---------+---------+---------+
@@ -236,23 +231,14 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 42    ;
+; Total registers                              ; 9     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 32    ;
+; Number of registers using Asynchronous Clear ; 9     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 18    ;
+; Number of registers using Clock Enable       ; 8     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 256:1              ; 7 bits    ; 1190 LEs      ; 42 LEs               ; 1148 LEs               ; Yes        ; |test|alu:inst|result[3]   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +-------------------------------+
@@ -270,12 +256,9 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Nov 26 23:59:13 2024
+    Info: Processing started: Wed Nov 27 21:21:24 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off 8bitCPU -c 8bitCPU
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
-    Info (12022): Found design unit 1: alu-behaviour
-    Info (12023): Found entity 1: alu
 Info (12021): Found 2 design units, including 1 entities, in source file dec3to8.vhd
     Info (12022): Found design unit 1: dec3to8-behaviour
     Info (12023): Found entity 1: dec3to8
@@ -290,24 +273,39 @@ Info (12021): Found 2 design units, including 1 entities, in source file sseg.vh
     Info (12023): Found entity 1: sseg
 Info (12021): Found 1 design units, including 1 entities, in source file 8bitcpu.bdf
     Info (12023): Found entity 1: 8bitCPU
-Info (12021): Found 1 design units, including 1 entities, in source file test.bdf
-    Info (12023): Found entity 1: test
-Info (12127): Elaborating entity "test" for the top level hierarchy
-Info (12128): Elaborating entity "alu" for hierarchy "alu:inst"
-Info (12128): Elaborating entity "reg" for hierarchy "reg:inst3"
+Info (12021): Found 2 design units, including 1 entities, in source file alu1.vhd
+    Info (12022): Found design unit 1: alu1-behaviour
+    Info (12023): Found entity 1: alu1
+Info (12021): Found 1 design units, including 1 entities, in source file test1.bdf
+    Info (12023): Found entity 1: test1
+Info (12021): Found 2 design units, including 1 entities, in source file alu2.vhd
+    Info (12022): Found design unit 1: alu2-behaviour
+    Info (12023): Found entity 1: alu2
+Info (12021): Found 1 design units, including 1 entities, in source file test2.bdf
+    Info (12023): Found entity 1: test2
+Info (12021): Found 2 design units, including 1 entities, in source file alu3.vhd
+    Info (12022): Found design unit 1: alu3-behaviour
+    Info (12023): Found entity 1: alu3
+Info (12021): Found 2 design units, including 1 entities, in source file sseg3.vhd
+    Info (12022): Found design unit 1: sseg3-behaviour
+    Info (12023): Found entity 1: sseg3
+Info (12021): Found 1 design units, including 1 entities, in source file test3.bdf
+    Info (12023): Found entity 1: test3
+Info (12127): Elaborating entity "test3" for the top level hierarchy
+Info (12128): Elaborating entity "alu3" for hierarchy "alu3:inst"
 Info (12128): Elaborating entity "dec3to8" for hierarchy "dec3to8:inst1"
 Info (12128): Elaborating entity "fsm" for hierarchy "fsm:inst2"
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "id[3]" is stuck at GND
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 155 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 23 input pins
-    Info (21059): Implemented 14 output pins
-    Info (21061): Implemented 118 logic cells
+Info (21057): Implemented 24 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 5 output pins
+    Info (21061): Implemented 14 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4647 megabytes
-    Info: Processing ended: Tue Nov 26 23:59:14 2024
+    Info: Peak virtual memory: 4636 megabytes
+    Info: Processing ended: Wed Nov 27 21:21:25 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

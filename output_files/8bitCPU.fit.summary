@@ -1,15 +1,15 @@
-Fitter Status : Successful - Tue Nov 26 23:59:19 2024
+Fitter Status : Successful - Wed Nov 27 21:21:29 2024
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : 8bitCPU
-Top-level Entity Name : test
+Top-level Entity Name : test3
 Family : Cyclone II
 Device : EP2C35F672C6
 Timing Models : Final
-Total logic elements : 94 / 33,216 ( < 1 % )
-    Total combinational functions : 86 / 33,216 ( < 1 % )
-    Dedicated logic registers : 42 / 33,216 ( < 1 % )
-Total registers : 42
-Total pins : 37 / 475 ( 8 % )
+Total logic elements : 12 / 33,216 ( < 1 % )
+    Total combinational functions : 8 / 33,216 ( < 1 % )
+    Dedicated logic registers : 9 / 33,216 ( < 1 % )
+Total registers : 9
+Total pins : 10 / 475 ( 2 % )
 Total virtual pins : 0
 Total memory bits : 0 / 483,840 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 70 ( 0 % )
