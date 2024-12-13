@@ -1,43 +1,19 @@
-|test3
-answer <= alu3:inst.yes_or_no
-clock => alu3:inst.clk
-clock => fsm:inst2.clk
-reset_alu => alu3:inst.res
-enable => dec3to8:inst1.en
-data_in => fsm:inst2.data_in
-reset_fsm => fsm:inst2.reset
-id[0] <= fsm:inst2.student_id[0]
-id[1] <= fsm:inst2.student_id[1]
-id[2] <= fsm:inst2.student_id[2]
-id[3] <= fsm:inst2.student_id[3]
+|dec3to8report
+y[0] <= dec3to8:inst.y[0]
+y[1] <= dec3to8:inst.y[1]
+y[2] <= dec3to8:inst.y[2]
+y[3] <= dec3to8:inst.y[3]
+y[4] <= dec3to8:inst.y[4]
+y[5] <= dec3to8:inst.y[5]
+y[6] <= dec3to8:inst.y[6]
+y[7] <= dec3to8:inst.y[7]
+enable => dec3to8:inst.en
+w[0] => dec3to8:inst.w[0]
+w[1] => dec3to8:inst.w[1]
+w[2] => dec3to8:inst.w[2]
 
 
-|test3|alu3:inst
-clk => yes_or_no~reg0.CLK
-res => yes_or_no~reg0.ACLR
-opcode[0] => Mux0.IN255
-opcode[1] => Mux0.IN254
-opcode[2] => Mux0.IN253
-opcode[3] => Mux0.IN252
-opcode[4] => Mux0.IN251
-opcode[5] => Mux0.IN250
-opcode[6] => Mux0.IN249
-opcode[7] => Mux0.IN248
-student_id[0] => Mux0.IN256
-student_id[0] => Mux0.IN257
-student_id[0] => Mux0.IN258
-student_id[0] => Mux0.IN259
-student_id[0] => Mux0.IN260
-student_id[0] => Mux0.IN261
-student_id[0] => Mux0.IN262
-student_id[0] => Mux0.IN263
-student_id[1] => ~NO_FANOUT~
-student_id[2] => ~NO_FANOUT~
-student_id[3] => ~NO_FANOUT~
-yes_or_no <= yes_or_no~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|test3|dec3to8:inst1
+|dec3to8report|dec3to8:inst
 w[0] => Mux0.IN19
 w[0] => Mux1.IN19
 w[0] => Mux2.IN19
@@ -78,33 +54,5 @@ y[4] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
 y[5] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
 y[6] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 y[7] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|test3|fsm:inst2
-data_in => Selector0.IN3
-data_in => Selector1.IN3
-data_in => Selector2.IN3
-data_in => Selector3.IN3
-data_in => Selector4.IN3
-data_in => Selector5.IN3
-data_in => Selector6.IN3
-data_in => Selector7.IN3
-data_in => Selector0.IN1
-data_in => Selector1.IN1
-data_in => Selector2.IN1
-data_in => Selector3.IN1
-data_in => Selector4.IN1
-data_in => Selector5.IN1
-data_in => Selector6.IN1
-data_in => Selector7.IN1
-clk => yfsm~1.DATAIN
-reset => yfsm~3.DATAIN
-student_id[0] <= student_id.DB_MAX_OUTPUT_PORT_TYPE
-student_id[1] <= WideOr11.DB_MAX_OUTPUT_PORT_TYPE
-student_id[2] <= student_id.DB_MAX_OUTPUT_PORT_TYPE
-student_id[3] <= <GND>
-current_state[0] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
-current_state[1] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
-current_state[2] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
 
 

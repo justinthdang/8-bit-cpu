@@ -18,269 +18,32 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "11/27/2024 21:37:34"
+// Generated on "12/12/2024 21:25:44"
                                                                         
-// Verilog Self-Checking Test Bench (with test vectors) for design :    test3
+// Verilog Self-Checking Test Bench (with test vectors) for design :    dec3to8report
 // 
 // Simulation tool : 3rd Party
 // 
 
 `timescale 1 ps/ 1 ps
-module test3_vlg_sample_tst(
-	clock,
-	data_in,
-	enable,
-	reset_alu,
-	reset_fsm,
-	sampler_tx
-);
-input  clock;
-input  data_in;
-input  enable;
-input  reset_alu;
-input  reset_fsm;
-output sampler_tx;
-
-reg sample;
-time current_time;
-always @(clock or data_in or enable or reset_alu or reset_fsm)
-                                                                                
-begin                                                 
- if ($realtime > 0)                                   
- begin                                                
-	if ($realtime == 0 || $realtime != current_time)  
-	begin									          
-		if (sample === 1'bx)                          
-			sample = 0;                               
-		else                                          
-			sample = ~sample;                         
-	end										          
-	current_time = $realtime;					      
- end                                                  
-end                                                   
-
-assign sampler_tx = sample;
-endmodule
-
-module test3_vlg_check_tst (
-	answer,
-	id,
-	sampler_rx
-);
-input  answer;
-input [3:0] id;
-input sampler_rx;
-
-reg  answer_expected;
-reg [3:0] id_expected;
-
-reg  answer_prev;
-reg [3:0] id_prev;
-
-reg  answer_expected_prev;
-reg [3:0] id_expected_prev;
-
-reg  last_answer_exp;
-reg [3:0] last_id_exp;
-
-reg trigger;
-
-integer i;
-integer nummismatches;
-
-reg [1:2] on_first_change ;
-
-
-initial
-begin
-trigger = 0;
-i = 0;
-nummismatches = 0;
-on_first_change = 2'b1;
-end
-
-// update real /o prevs
-
-always @(trigger)
-begin
-	answer_prev = answer;
-	id_prev = id;
-end
-
-// update expected /o prevs
-
-always @(trigger)
-begin
-	answer_expected_prev = answer_expected;
-	id_expected_prev = id_expected;
-end
-
-
-
-// expected answer
-initial
-begin
-	answer_expected = 1'bX;
-	answer_expected = #199000 1'b0;
-end 
-// expected id[ 3 ]
-initial
-begin
-	id_expected[3] = 1'bX;
-	id_expected[3] = #199000 1'b0;
-end 
-// expected id[ 2 ]
-initial
-begin
-	id_expected[2] = 1'bX;
-	id_expected[2] = #199000 1'b0;
-end 
-// expected id[ 1 ]
-initial
-begin
-	id_expected[1] = 1'bX;
-	id_expected[1] = #199000 1'b0;
-end 
-// expected id[ 0 ]
-initial
-begin
-	id_expected[0] = 1'bX;
-	id_expected[0] = #199000 1'b0;
-end 
-// generate trigger
-always @(answer_expected or answer or id_expected or id)
-begin
-	trigger <= ~trigger;
-end
-
-always @(posedge sampler_rx or negedge sampler_rx)
-begin
-`ifdef debug_tbench
-	$display("Scanning pattern %d @time = %t",i,$realtime );
-	i = i + 1;
-	$display("| expected answer = %b | expected id = %b | ",answer_expected_prev,id_expected_prev);
-	$display("| real answer = %b | real id = %b | ",answer_prev,id_prev);
-`endif
-	if (
-		( answer_expected_prev !== 1'bx ) && ( answer_prev !== answer_expected_prev )
-		&& ((answer_expected_prev !== last_answer_exp) ||
-			on_first_change[1])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port answer :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", answer_expected_prev);
-		$display ("     Real value = %b", answer_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[1] = 1'b0;
-		last_answer_exp = answer_expected_prev;
-	end
-	if (
-		( id_expected_prev[0] !== 1'bx ) && ( id_prev[0] !== id_expected_prev[0] )
-		&& ((id_expected_prev[0] !== last_id_exp[0]) ||
-			on_first_change[2])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port id[0] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", id_expected_prev);
-		$display ("     Real value = %b", id_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[2] = 1'b0;
-		last_id_exp[0] = id_expected_prev[0];
-	end
-	if (
-		( id_expected_prev[1] !== 1'bx ) && ( id_prev[1] !== id_expected_prev[1] )
-		&& ((id_expected_prev[1] !== last_id_exp[1]) ||
-			on_first_change[2])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port id[1] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", id_expected_prev);
-		$display ("     Real value = %b", id_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[2] = 1'b0;
-		last_id_exp[1] = id_expected_prev[1];
-	end
-	if (
-		( id_expected_prev[2] !== 1'bx ) && ( id_prev[2] !== id_expected_prev[2] )
-		&& ((id_expected_prev[2] !== last_id_exp[2]) ||
-			on_first_change[2])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port id[2] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", id_expected_prev);
-		$display ("     Real value = %b", id_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[2] = 1'b0;
-		last_id_exp[2] = id_expected_prev[2];
-	end
-	if (
-		( id_expected_prev[3] !== 1'bx ) && ( id_prev[3] !== id_expected_prev[3] )
-		&& ((id_expected_prev[3] !== last_id_exp[3]) ||
-			on_first_change[2])
-	)
-	begin
-		$display ("ERROR! Vector Mismatch for output port id[3] :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", id_expected_prev);
-		$display ("     Real value = %b", id_prev);
-		nummismatches = nummismatches + 1;
-		on_first_change[2] = 1'b0;
-		last_id_exp[3] = id_expected_prev[3];
-	end
-
-	trigger <= ~trigger;
-end
-initial 
-
-begin 
-$timeformat(-12,3," ps",6);
-#200000;
-if (nummismatches > 0)
-	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
-else
-	$display ("Simulation passed !");
-$finish;
-end 
-endmodule
-
-module test3_vlg_vec_tst();
+module dec3to8report_vlg_vec_tst();
 // constants                                           
 // general purpose registers
-reg clock;
-reg data_in;
 reg enable;
-reg reset_alu;
-reg reset_fsm;
+reg [2:0] w;
 // wires                                               
-wire answer;
-wire [3:0] id;
-
-wire sampler;                             
+wire [7:0] y;
 
 // assign statements (if any)                          
-test3 i1 (
+dec3to8report i1 (
 // port map - connection between master ports and signals/registers   
-	.answer(answer),
-	.clock(clock),
-	.data_in(data_in),
 	.enable(enable),
-	.id(id),
-	.reset_alu(reset_alu),
-	.reset_fsm(reset_fsm)
+	.w(w),
+	.y(y)
 );
-
-// clock
-always
-begin
-	clock = 1'b0;
-	clock = #10000 1'b1;
-	#10000;
-end 
-
-// data_in
-initial
-begin
-	data_in = 1'b0;
-	data_in = #30000 1'b1;
+initial 
+begin 
+#120000 $finish;
 end 
 
 // enable
@@ -289,32 +52,9 @@ begin
 	enable = 1'b0;
 	enable = #10000 1'b1;
 end 
-
-// reset_alu
-initial
-begin
-	reset_alu = 1'b0;
+initial 
+begin 
+#120000 $finish;
 end 
-
-// reset_fsm
-initial
-begin
-	reset_fsm = 1'b0;
-end 
-
-test3_vlg_sample_tst tb_sample (
-	.clock(clock),
-	.data_in(data_in),
-	.enable(enable),
-	.reset_alu(reset_alu),
-	.reset_fsm(reset_fsm),
-	.sampler_tx(sampler)
-);
-
-test3_vlg_check_tst tb_out(
-	.answer(answer),
-	.id(id),
-	.sampler_rx(sampler)
-);
 endmodule
 

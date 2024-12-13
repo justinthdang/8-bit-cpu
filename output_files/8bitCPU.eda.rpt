@@ -1,5 +1,5 @@
 EDA Netlist Writer report for 8bitCPU
-Wed Nov 27 21:37:34 2024
+Thu Dec 12 21:25:45 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -36,9 +36,9 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Wed Nov 27 21:37:34 2024 ;
+; EDA Netlist Writer Status ; Successful - Thu Dec 12 21:25:45 2024 ;
 ; Revision Name             ; 8bitCPU                               ;
-; Top-level Entity Name     ; test3                                 ;
+; Top-level Entity Name     ; dec3to8report                         ;
 ; Family                    ; Cyclone II                            ;
 ; Simulation Files Creation ; Successful                            ;
 +---------------------------+---------------------------------------+
@@ -80,13 +80,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Nov 27 21:37:34 2024
+    Info: Processing started: Thu Dec 12 21:25:45 2024
 Info: Command: quartus_eda --functional=on --simulation=on --tool=modelsim_oem --format=verilog 8bitCPU -c 8bitCPU
 Info (204019): Generated file 8bitCPU.vo in folder "C:/Users/tinhu/Desktop/coe-328/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4516 megabytes
-    Info: Processing ended: Wed Nov 27 21:37:34 2024
+    Info: Processing ended: Thu Dec 12 21:25:45 2024
     Info: Elapsed time: 00:00:00
-    Info: Total CPU time (on all processors): 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
 
 
