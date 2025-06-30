@@ -29,7 +29,7 @@ Each ALU outputs results as **two 4-bit signed values**, displayed on **seven-se
 
 ### CPU 1
 
-![CPU 1 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/cpu1and2.png?raw=true)
+![CPU 1 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/cpu1.png?raw=true)
 
 | Function \# | Opcode | Function |
 | ----- | ----- | ----- |
@@ -46,7 +46,7 @@ Each ALU outputs results as **two 4-bit signed values**, displayed on **seven-se
 
 ### CPU 2
 
-![CPU 2 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/cpu1and2.png?raw=true)
+![CPU 2 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/cpu2.png?raw=true)
 
 | Function \# | Opcode | Function |
 | ----- | ----- | ----- |
