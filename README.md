@@ -1,19 +1,19 @@
-# 🧠 COE 328 Final Project: 8-Bit CPU
+# COE 328 Final Project: 8-Bit CPU
 
 ## Overview
 
 This project implements an 8-bit Central Processing Unit (CPU) on an Altera Cyclone II FPGA board using VHDL and Intel Quartus II. The CPU is capable of executing various arithmetic and logic operations through a combination of key digital logic components.
 
-### 🗃️ Register
+### Register
 Stores 8-bit values using D flip-flops. Supports reset and synchronous data loading.
 
-### 🔄 FSM (Finite State Machine)
+### FSM (Finite State Machine)
 Cycles through 8 predefined states (based on the student ID), used to generate control signals for the decoder.
 
-### 📤 3-to-8 Decoder
+### 3-to-8 Decoder
 Translates 3-bit FSM output into a unique 8-bit opcode signal for the ALU.
 
-### 🧮 ALUs (Arithmetic Logic Units)
+### ALUs (Arithmetic Logic Units)
 - **ALU 1 – Basic Arithmetic & Logic:**  
   Sum, difference, inversion, and logical operations.
 - **ALU 2 – Bit Manipulation:**  
@@ -27,9 +27,9 @@ Each ALU outputs results as **two 4-bit signed values**, displayed on **seven-se
 
 **Note:** Example waveforms are shown using the student ID number 01226005, and register numbers 10 and 5. The output of the student ID begins at the second clock signal whereas the operations begin at the third clock signal.
 
-## CPU 1
+### CPU 1
 
-![CPU 1 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/cpu1and2.png?raw=true)
+![CPU 1 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/cpu1and2.png?raw=true)
 
 | Function \# | Opcode | Function |
 | ----- | ----- | ----- |
@@ -42,11 +42,11 @@ Each ALU outputs results as **two 4-bit signed values**, displayed on **seven-se
 | 7 | 01000000 | a XOR b |
 | 8 | 10000000 | a OR b |
 
-![Waveform 1 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/waveform1.png?raw=true)
+![Waveform 1 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/waveform1.png?raw=true)
 
-## CPU 2
+### CPU 2
 
-![CPU 2 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/cpu1and2.png?raw=true)
+![CPU 2 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/cpu1and2.png?raw=true)
 
 | Function \# | Opcode | Function |
 | ----- | ----- | ----- |
@@ -59,11 +59,11 @@ Each ALU outputs results as **two 4-bit signed values**, displayed on **seven-se
 | 7 | 01000000 | Produce the result of XORing a and b |
 | 8 | 10000000 | Produce the summation of a and b, then decrease it by 4 |
 
-![Waveform 2 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/waveform2.png?raw=true)
+![Waveform 2 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/waveform2.png?raw=true)
 
-## CPU 3
+### CPU 3
 
-![CPU 3 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/cpu3.png?raw=true)
+![CPU 3 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/cpu3.png?raw=true)
 
 | Function \# | Opcode | Function |
 | ----- | ----- | ----- |
@@ -76,4 +76,4 @@ Each ALU outputs results as **two 4-bit signed values**, displayed on **seven-se
 | 7 | 01000000 | Display ‘y’ if the student ID digit is odd and ‘n’ otherwise |
 | 8 | 10000000 | Display ‘y’ if the student ID digit is odd and ‘n’ otherwise |
 
-![Waveform 3 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/waveform3.png?raw=true)
+![Waveform 3 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/waveform3.png?raw=true)
