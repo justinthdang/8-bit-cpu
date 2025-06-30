@@ -2,34 +2,20 @@
 
 ## Overview
 
-This project implements an 8-bit Central Processing Unit (CPU) on an Altera Cyclone II FPGA board using VHDL and Intel Quartus II. The CPU is capable of executing various arithmetic and logic operations through a combination of key digital logic components.
+This project implements an 8-bit Central Processing Unit (CPU) on an Altera Cyclone II FPGA board using VHDL and Intel Quartus II. The CPU is capable of executing various arithmetic and logic operations through a combination of key digital logic components:
 
-### Register
-Stores 8-bit values using D flip-flops. Supports reset and synchronous data loading.
+- **Register:** Stores 8-bit values using D flip-flops. Supports reset and synchronous data loading.
+- **Finite State Machine (FSM):** Cycles through 8 predefined states (based on the student ID), used to generate control signals for the decoder.
+- **3-to-8 Decoder:** Translates 3-bit FSM output into a unique 8-bit opcode signal for the ALU.
+- **Arithmetic Logic Unit (ALU)**: Performs arithmetic, logic, and conditional operations based on opcodes, transforming register or student ID inputs into outputs displayed on seven-segment displays
 
-### FSM (Finite State Machine)
-Cycles through 8 predefined states (based on the student ID), used to generate control signals for the decoder.
+This project uses 3 ALUs of different instruction sets. Each outputs results as two 4-bit signed values, displayed on **seven-segment displays**. A more in depth analysis of this project is explained in **report.pdf** of this repository.
 
-### 3-to-8 Decoder
-Translates 3-bit FSM output into a unique 8-bit opcode signal for the ALU.
+## ALU Microcodes, Final CPU Block Diagrams, and Example Waveforms
 
-### ALUs (Arithmetic Logic Units)
-- **ALU 1 – Basic Arithmetic & Logic:**  
-  Sum, difference, inversion, and logical operations.
-- **ALU 2 – Bit Manipulation:**  
-  Shifting, rotation, comparison, inversion, and modified addition.
-- **ALU 3 – Student ID Parity Check:**  
-  Outputs `'y'` or `'n'` depending on whether each digit of the student ID is odd or even.
+**Note:** Example waveforms are shown using the student ID number 01226005, and the register numbers 10 and 5. The output of the student ID begins at the second clock signal whereas the operations begin at the third clock signal.
 
-Each ALU outputs results as **two 4-bit signed values**, displayed on **seven-segment displays**.
-
-## Final Block Diagrams, ALU Microcodes, and Example Waveforms
-
-**Note:** Example waveforms are shown using the student ID number 01226005, and register numbers 10 and 5. The output of the student ID begins at the second clock signal whereas the operations begin at the third clock signal.
-
-### CPU 1
-
-![CPU 1 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/cpu1.png?raw=true)
+### ALU 1 and CPU 1 – Basic Arithmetic and Logic:
 
 | Function \# | Opcode | Function |
 | ----- | ----- | ----- |
@@ -42,11 +28,11 @@ Each ALU outputs results as **two 4-bit signed values**, displayed on **seven-se
 | 7 | 01000000 | a XOR b |
 | 8 | 10000000 | a OR b |
 
+![CPU 1 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/cpu1.png?raw=true)
+
 ![Waveform 1 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/waveform1.png?raw=true)
 
-### CPU 2
-
-![CPU 2 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/cpu2.png?raw=true)
+### ALU 2 and CPU 2 – Bit Manipulation:
 
 | Function \# | Opcode | Function |
 | ----- | ----- | ----- |
@@ -59,11 +45,11 @@ Each ALU outputs results as **two 4-bit signed values**, displayed on **seven-se
 | 7 | 01000000 | Produce the result of XORing a and b |
 | 8 | 10000000 | Produce the summation of a and b, then decrease it by 4 |
 
+![CPU 2 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/cpu2.png?raw=true)
+
 ![Waveform 2 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/waveform2.png?raw=true)
 
-### CPU 3
-
-![CPU 3 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/cpu3.png?raw=true)
+### ALU 3 and CPU 3 – Student ID Parity Check:
 
 | Function \# | Opcode | Function |
 | ----- | ----- | ----- |
@@ -75,5 +61,7 @@ Each ALU outputs results as **two 4-bit signed values**, displayed on **seven-se
 | 6 | 00100000 | Display ‘y’ if the student ID digit is odd and ‘n’ otherwise |
 | 7 | 01000000 | Display ‘y’ if the student ID digit is odd and ‘n’ otherwise |
 | 8 | 10000000 | Display ‘y’ if the student ID digit is odd and ‘n’ otherwise |
+
+![CPU 3 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/cpu3.png?raw=true)
 
 ![Waveform 3 Block Diagram](https://github.com/justinthdang/8-bit-cpu/blob/main/images/waveform3.png?raw=true)
